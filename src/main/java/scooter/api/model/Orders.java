@@ -3,7 +3,6 @@ package scooter.api.model;
 import java.util.List;
 
 public class Orders {
-
     private int id;
     private String courierId;
     private String firstName;

@@ -7,10 +7,9 @@ import scooter.api.model.ListOfOrders;
 
 import static io.restassured.RestAssured.given;
 
-
 public class OrderClient extends ScooterRestClient {
     public final String PATH = BASE_URL + "courier/";
-
+  
 
     @Step("createOrderWithTwoColors as {createOrderData}")
     public Response createOrderWithTwoColors(CreateOrderData createOrderData) {
@@ -34,25 +33,25 @@ public class OrderClient extends ScooterRestClient {
                 .extract().response();
     }
 
-    @Step("OrderList {track}")
-    public void ListOfOrders (){
-        ListOfOrders listOfOrders = given()
+    @Step("GetOrderListOfCreatedOrders  {listOfReturnedOrders}")
+    public ListOfOrders getDataListOfAllCreatedOrders () {
+    ListOfOrders listOfOrders = given()
                 .spec(getBaseSpec())
                 .when()
                 .get(BASE_URL + "orders/")
                 .body().as(ListOfOrders.class);
-        System.out.println(listOfOrders.getOrders());
-
-
+             return listOfOrders;
     }
-    @Step("OrderList {track}")
-    public Response createListOfOrders (){
-     return given()
+
+    @Step("CheckGetOrderListOfCreatedOrders {listOfCreatedOrders}")
+    public Response createListOfOrders() {
+       return given()
                 .spec(getBaseSpec())
                 .when()
                 .get(BASE_URL + "orders/")
-             .then()
-             .extract().response();
-}}
+                .then()
+                .extract().response();
+    }
+}
 
 

@@ -1,7 +1,6 @@
 package scooter.api.model;
 
 public class CreateOrderData {
-
     public String firstName;
     public String lastName;
     public String address;
@@ -12,7 +11,6 @@ public class CreateOrderData {
     public String comment;
     public String color;
 
-
     public CreateOrderData(String firstName, String lastName, String address, String metroStation, String phone, int rentTime, String deliveryDate, String comment, String color) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -22,12 +20,9 @@ public class CreateOrderData {
         this.rentTime = rentTime;
         this.deliveryDate = deliveryDate;
         this.comment = comment;
-
-
     }
 
     public CreateOrderData() {
-
     }
 
     public String getFirstName() {

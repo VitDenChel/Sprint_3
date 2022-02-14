@@ -15,12 +15,9 @@ public class CheckCreateCourierWithoutLoginTest {
 
     @Test
     public void courierCanNotBeCreatedWithoutLogin() {
-
         CourierHasPasswordAndFirstNameForCreation courierIncompleteData = CourierHasPasswordAndFirstNameForCreation.getRandom();
         Response createCourierResponse = courierClient.createCourierWithoutLogin(courierIncompleteData);
-        Assert.assertEquals(400, createCourierResponse.statusCode());
-        Assert.assertEquals("Недостаточно данных для создания учетной записи", createCourierResponse.jsonPath().getString("message"));
-
-
+        Assert.assertEquals("Courier can be created without a login", 400, createCourierResponse.statusCode());
+        Assert.assertEquals("Wrong error message", "Недостаточно данных для создания учетной записи", createCourierResponse.jsonPath().getString("message"));
     }
 }

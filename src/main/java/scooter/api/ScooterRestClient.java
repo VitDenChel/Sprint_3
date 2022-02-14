@@ -12,6 +12,5 @@ public class ScooterRestClient {
                 .setContentType(ContentType.JSON)
                 .setBaseUri(BASE_URL)
                 .build();
-
     }
 }

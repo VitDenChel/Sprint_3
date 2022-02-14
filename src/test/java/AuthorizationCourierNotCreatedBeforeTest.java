@@ -8,18 +8,16 @@ import scooter.api.model.Courier;
 public class AuthorizationCourierNotCreatedBeforeTest {
     private CourierClient courierClient;
 
-    @Before
-    public void setUp() {
-        courierClient = new CourierClient();
-    }
-
+  @Before
+   public void setUp() {
+       courierClient = new CourierClient();
+   }
 
     @Test
     public void courierCanNotBeAuthorizationNotBeCreatedBefore() {
         Courier courier = Courier.getRandom();
         Response createAuthorizationResponse = courierClient.courierAuthrizationNotCreatedBefore(courier);
-        Assert.assertEquals(404, createAuthorizationResponse.statusCode());
-        Assert.assertEquals("Учетная запись не найдена", createAuthorizationResponse.jsonPath().getString("message"));
+        Assert.assertEquals("Courier can log in without the process of creation before",404, createAuthorizationResponse.statusCode());
+        Assert.assertEquals("Wrong error message", "Учетная запись не найдена", createAuthorizationResponse.jsonPath().getString("message"));
     }
-
 }
