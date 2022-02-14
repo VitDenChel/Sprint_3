@@ -9,7 +9,6 @@ import static io.restassured.RestAssured.given;
 public class CourierClient extends ScooterRestClient {
     public final String PATH = BASE_URL + "courier/";
 
-
     @Step("Create courier {courier}")
     public Response create(Courier courier) {
         return given()
@@ -87,7 +86,6 @@ public class CourierClient extends ScooterRestClient {
                 .then()
                 .extract().response();
     }
-
 
     @Step("AuthirizationWithoutLogin as {courierCredentialsWithoutLogin}")
     public Response courierAuthrizationWithoutLogin(CourierHasPasswordForAuthorization courierHasPasswordForAuthorization) {

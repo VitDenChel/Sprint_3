@@ -3,11 +3,8 @@ package scooter.api.model;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class CourierHasPasswordAndFirstNameForCreation {
-
-
     public String password;
     public String firstName;
-
 
     public CourierHasPasswordAndFirstNameForCreation(String password, String firstName) {
         this.password = password;

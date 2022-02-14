@@ -13,7 +13,6 @@ public class CourierAuthorizationTest {
     private int courierId;
     private CourierCredentials courierCredentials;
 
-
     @Before
     public void setUp() {
         courierClient = new CourierClient();
@@ -32,7 +31,6 @@ public class CourierAuthorizationTest {
         Response createCourierResponseID = courierClient.login(courierCredentials.from(courier));
         int courierID = createCourierResponseID.jsonPath().getInt("id");
         Response CourierAuthorization = courierClient.courierAuthrization(CourierCredentials.from(courier));
-        Assert.assertEquals(200, CourierAuthorization.statusCode());
+        Assert.assertEquals("Courier is not logged in with valid data", 200, CourierAuthorization.statusCode());
     }
-
 }

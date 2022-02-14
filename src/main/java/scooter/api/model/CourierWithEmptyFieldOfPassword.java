@@ -3,10 +3,8 @@ package scooter.api.model;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class CourierWithEmptyFieldOfPassword {
-
     public String login;
     public String password;
-
 
     public CourierWithEmptyFieldOfPassword(String login, String password) {
         this.login = login;
